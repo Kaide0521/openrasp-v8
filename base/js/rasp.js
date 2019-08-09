@@ -12,13 +12,13 @@ global.RASP = class {
         RASP.plugins[name] = this;
     }
 
-    static check(checkPoint, checkParams, checkContext) {
-        if (!RASP.checkPoints[checkPoint]) {
-            throw new Error('Unknown check point name \'' + checkPoint + '\'');
+    static check(point, ...args) {
+        if (!RASP.checkPoints[point]) {
+            throw new Error('Unknown check point name \'' + point + '\'');
         }
         const results = []
-        for (const checkProcess of RASP.checkPoints[checkPoint]) {
-            const result = checkProcess.plugin.make_result(checkProcess.func(checkParams, checkContext));
+        for (const checkProcess of RASP.checkPoints[point]) {
+            const result = checkProcess.plugin.make_result(checkProcess.func(...args));
             if (result) {
                 results.push(result);
             }
