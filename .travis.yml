@@ -12,10 +12,6 @@ matrix:
     - prebuilts/fetch_prebuilts.sh
   - os: osx
     osx_image: xcode10
-    addons:
-      homebrew:
-        packages:
-        - cmake
     before_install:
     - prebuilts/fetch_prebuilts.sh
   - os: windows
