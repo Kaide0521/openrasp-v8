@@ -15,7 +15,6 @@ matrix:
       homebrew:
         packages:
         - cmake
-        update: true
     before_install:
     - prebuilts/fetch_prebuilts.sh
   - os: windows
